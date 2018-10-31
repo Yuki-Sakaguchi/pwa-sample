@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="manifest" href="manifest.json">
+    <title>PWA SANPLE</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        margin: 0;
+      }
+      .btn {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        width: 100px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>PWAのアプリ</h1>
+    <div class="btn js-alert">アラート</div>
+    <script>
+      var alertBtn = document.querySelector('.js-alert');
+      var text = 'seviceWorker undefined';
+
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('sw.js').then(function(registration) {
+          console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          text = "ServiseWorker successful";
+        }).catch(function(err) {
+          console.log('ServiceWorker registration failed: ', err);
+          text = "ServiseWorker failed";
+        });
+      }
+
+      alertBtn.addEventListener('click', function() {
+        alert(text);
+      });
+    </script>
+  </body>
+</html>
