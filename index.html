@@ -13,7 +13,7 @@
     <p>push通知のテスト</p>
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/serviceworker.js');
+        navigator.serviceWorker.register('js/sw.js');
 
         navigator.serviceWorker.ready
           .then(function (registration) {
