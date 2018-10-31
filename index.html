@@ -10,24 +10,24 @@
   </head>
   <body>
     <h1>PWAのアプリ</h1>
-    <div class="btn js-alert">アラート</div>
+    <p>push通知のテスト</p>
     <script>
-      var alertBtn = document.querySelector('.js-alert');
-      var text = 'seviceWorker undefined';
-
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('js/sw.js').then(function(registration) {
-          console.log('ServiceWorker registration successful with scope: ', registration.scope);
-          text = "ServiseWorker successful";
-        }).catch(function(err) {
-          console.log('ServiceWorker registration failed: ', err);
-          text = "ServiseWorker failed";
-        });
-      }
+        navigator.serviceWorker.register('/serviceworker.js');
 
-      alertBtn.addEventListener('click', function() {
-        alert(text);
-      });
+        navigator.serviceWorker.ready
+          .then(function (registration) {
+              return registration.pushManager.subscribe({ userVisibleOnly: true });
+          })
+          .then(function (subscription) {
+              console.log('GCM EndPoint is:' + subscription.endpoint);
+              var auth = subscription.getKey('auth') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('auth')))) : '';
+              console.log('User Auth is:' + auth);
+              var publicKey = subscription.getKey('p256dh') ? btoa(String.fromCharCode.apply(null, new Uint8Array(subscription.getKey('p256dh')))) : '';
+              console.log('User PublicKey is:' + publicKey);
+          })
+          .catch(console.error.bind(console));
+      }
     </script>
   </body>
 </html>
