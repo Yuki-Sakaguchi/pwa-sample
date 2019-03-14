@@ -8,3 +8,7 @@ PCでも使えるようになったらしいので試してみた
 
 # DEMO
 https://yuki-sakaguchi.github.io/pwa-sample/
+
+# PCでも使えるPWA参考サイト
+* [スターバックス](https://app.starbucks.com/)
+* [SuperPWA](https://superpwa.com/)
