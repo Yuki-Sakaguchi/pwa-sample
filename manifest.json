@@ -6,7 +6,7 @@
 	"theme_color": "#1ee5e9",
 	"icons": [
 		{
-			"src": "/images/icon.png",
+			"src": "/pwa-sample/images/icon.png",
 			"sizes": "320x320",
 			"type": "image/png"
 		}
