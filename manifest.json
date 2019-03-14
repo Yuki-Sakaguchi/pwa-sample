@@ -2,11 +2,11 @@
 	"name": "PWAサンプルアプリ",
 	"short_name": "PWAサンプル",
 	"display": "standalone",
-	"start_url": "https://yuki-sakaguchi.github.io/pwa-sample/index.html",
+	"start_url": "/",
 	"theme_color": "#1ee5e9",
 	"icons": [
 		{
-			"src": "https://yuki-sakaguchi.github.io/pwa-sample/images/icon.png",
+			"src": "/images/icon.png",
 			"sizes": "320x320",
 			"type": "image/png"
 		}
