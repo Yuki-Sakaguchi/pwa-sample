@@ -10,10 +10,9 @@
   </head>
   <body>
     <h1>PWAのアプリ</h1>
-    <p>push通知のテスト</p>
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('js/sw.js');
+        navigator.serviceWorker.register('https://yuki-sakaguchi.github.io/pwa-sample/js/sw.js');
 
         navigator.serviceWorker.ready
           .then(function (registration) {
