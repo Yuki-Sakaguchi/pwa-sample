@@ -13,18 +13,14 @@ const neverCacheUrls = [/\/wp-admin/,/\/wp-login/,/preview=true/];
 
 // Install
 self.addEventListener('install', function(e) {
-	console.log('SuperPWA service worker installation');
-	e.waitUntil(
-		caches.open(cacheName).then(function(cache) {
-			console.log('SuperPWA service worker caching dependencies');
-			filesToCache.map(function(url) {
-				return cache.add(url).catch(function (reason) {
-					return console.log('SuperPWA: ' + String(reason) + ' ' + url);
-				});
-			});
-		})
-	);
-});
+  e.waitUntil(
+    caches.open('airhorner').then(function(cache) {
+      return cache.addAll([
+        './index.html',
+      ]);
+    })
+  );
+ });
 
 // Activate
 self.addEventListener('activate', function(e) {
